@@ -1,4 +1,5 @@
 <template>
+ <ClientOnly>
   <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen" :class="theme">
     <header class="border-t-14 border-green-700">
       <nav class="container mx-auto flex flex-wrap justify-between items-center py-8">
@@ -80,6 +81,7 @@
 
 
   </div>
+</ClientOnly>
 </template>
 
 <static-query>
@@ -93,14 +95,18 @@ query {
 <script>
 import SearchInput from '../components/SearchInput'
 import ThemeSwitcher from '../components/ThemeSwitcher'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
 
 export default {
   components: {
     SearchInput,
-    ThemeSwitcher
+    ThemeSwitcher, 
+    AOS
   },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'theme-light'
+    AOS.init()
   },
   data() {
     return {
