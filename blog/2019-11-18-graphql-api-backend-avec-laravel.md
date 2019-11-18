@@ -1,7 +1,7 @@
 ---
-title: Introduction to Gridsome
-path: /introduction-to-gridsome
-date: 2019-04-08
+title: GraphQL API backend avec Laravel
+path: /graphql-api-backend-avec-laravel
+date: 2019-11-18
 summary: Gridsome is a Vue.js-powered, modern site generator for building the fastest possible websites for any Headless CMS, APIs or Markdown-files. Gridsome makes it easy and fun for developers to create fast, beautiful websites without needing to become a performance expert.
 tags: ['frontend', 'coding', 'vue']
 ---
@@ -10,7 +10,7 @@ tags: ['frontend', 'coding', 'vue']
 
 > Gridsome is a Vue.js-powered, modern site generator for building the fastest possible websites for any Headless CMS, APIs or Markdown-files. Gridsome makes it easy and fun for developers to create fast, beautiful websites without needing to become a performance expert.
 
-### Why Gridsome?
+### Pourquoi utiliser GraphQL?
 
 - **Local development with hot-reloading** - See code changes in real-time.
 - **Data source plugins** - Use it for any popular Headless CMSs, APIs or Markdown-files.
