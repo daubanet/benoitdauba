@@ -4,10 +4,6 @@
 import DefaultLayout from '~/layouts/Default.vue'
 import VueScrollTo from 'vue-scrollto'
 import VueFuse from 'vue-fuse'
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-
-AOS.init()
 
 export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
