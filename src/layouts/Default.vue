@@ -50,7 +50,7 @@
         <div class="mb-8 lg:mb-0">
           <div>Copyright 2019. Tous droits réservés.</div>
           <div>
-            <a href="http://www.dauba.net" class="text-white hover:text-gray-400 font-normal">daubanet</a>
+            <a href="https://www.dauba.net" class="text-white hover:text-gray-400 font-normal">daubanet</a>
             <!-- <a href="/admin" class="text-white hover:text-gray-400 font-normal">Administration</a> -->
           </div>
         </div>
