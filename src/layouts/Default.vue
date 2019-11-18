@@ -104,7 +104,7 @@ export default {
   },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'theme-light'
-    this.AOS.init()
+   // this.AOS.init()
 
   },
   data() {
