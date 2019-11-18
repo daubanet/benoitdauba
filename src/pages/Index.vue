@@ -46,19 +46,19 @@
         <ul class="text-lg sm:text-xl">
           <li class="checkmark mb-6">
             <div><a href="https://www.k-net.fr">k-net.fr</a></div>
-            <div class="text-lg text-gray-600">Création du backbone opérateur.</div>
+            <div class="text-lg text-gray-600">Création et administration du backbone fibre optique (CISCO) Encadrement d'une équipe de 5techniciens Mise en place et supervision des services (hébergement, TV, Internet,téléphonie).</div>
           </li>
           <li class="checkmark mb-6">
             <div><a href="https://www.wibox.fr">wibox.fr</a></div>
-            <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
+            <div class="text-lg text-gray-600">Responsable support niveau III : 15 000 clients.Développement d'une API sur le SI en PHP pour la configuration des box IPTV.</div>
           </li>
           <li class="checkmark mb-6">
             <div><a href="https://www.fablab-mobile.fr">Fablab Mobile</a></div>
-            <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
+            <div class="text-lg text-gray-600"></div>
           </li>
           <li class="checkmark mb-6">
             <div><a href="https://www.passetonbillet.fr">Passe ton Billet</a></div>
-            <div class="text-lg text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui ab nam animi iure nemo exercitationem a, eius non culpa itaque!</div>
+            <div class="text-lg text-gray-600">PasseTonBillet © - Les Billets des uns font le bonheur des autres!</div>
           </li>
           <li class="checkmark mb-6">
             <div><a href="https://www.clubfunding.fr/home">ClubFunding</a></div>
@@ -92,7 +92,8 @@
           </div>
          
           <div class="text-lg sm:text-lg mb-16">
-            <form  name="contact" method="POST" netlify class="mb-12" >
+            <form  name="contact" method="POST" class="mb-12" data-netlify="true" netlify-honeypot="bot-field">
+                 <input type="hidden" name="form-name" value="contact"/>
               <div class="flex flex-wrap mb-6 -mx-4">
                   <div class="w-full md:w-1/2 mb-6 md:mb-0 px-4">
                       <label class="block mb-2 text-copy-primary" for="name">
