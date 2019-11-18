@@ -3,12 +3,17 @@ title: GraphQL API backend avec Laravel
 path: /graphql-api-backend-avec-laravel
 date: 2019-11-18
 summary: Gridsome is a Vue.js-powered, modern site generator for building the fastest possible websites for any Headless CMS, APIs or Markdown-files. Gridsome makes it easy and fun for developers to create fast, beautiful websites without needing to become a performance expert.
-tags: ['frontend', 'coding', 'vue']
+tags: ['frontend', 'coding', 'vue', 'Laravel']
 ---
 
-![background](./images/blog_bg_1.jpg)
+![background](./images/GraphQL_Logo.svg.png)
 
-> Gridsome is a Vue.js-powered, modern site generator for building the fastest possible websites for any Headless CMS, APIs or Markdown-files. Gridsome makes it easy and fun for developers to create fast, beautiful websites without needing to become a performance expert.
+> GraphQL vient de Facebook. En interne, Facebook cherchait un moyen de rendre son flux de nouvelles plus fiable sur son mobile.
+Utilisant une structure d’API REST traditionnelle, le flux de nouvelles appelait de nombreux points de terminaison d’API afin d’obtenir toutes les données nécessaires. En cours de route, les appels d’API entraînaient également des quantités excessives de données supplémentaires dont l’actualité n’avait pas besoin. De plus, à la réception, les ingénieurs front-end devaient encore analyser les données pour trouver les champs qu’ils souhaitaient.
+
+> Les ingénieurs de Facebook se demandaient: «Et si nous pouvions écrire un langage de requête afin de pouvoir spécifier toutes les informations dont nous avons besoin dans une seule requête d'API?»
+
+> GraphQL est le résultat de cet effort. Il mappe les relations entre les objets de votre base de données en créant un graphique. Ensuite, ils ont conçu un langage de requête pour parcourir cette carte de relations. D'où le nom GraphQL.
 
 ### Pourquoi utiliser GraphQL?
 
