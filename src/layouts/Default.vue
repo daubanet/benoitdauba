@@ -95,8 +95,7 @@ query {
 <script>
 import SearchInput from '../components/SearchInput'
 import ThemeSwitcher from '../components/ThemeSwitcher'
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
+
 
 export default {
   components: {
@@ -105,8 +104,6 @@ export default {
   },
   mounted() {
     this.theme = localStorage.getItem('theme') || 'theme-light'
-    console.log('ok')
-    AOS.init()
   },
   data() {
     return {
