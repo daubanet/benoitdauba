@@ -1,6 +1,16 @@
 <template>
   <Layout>
-    <div class="hero container-inner mx-auto flex flex-col sm:flex-row justify-between py-16">
+    <div 
+    data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-mirror="true"
+    data-aos-once="false"
+    data-aos-anchor-placement="top-center"
+    
+    class="hero container-inner mx-auto flex flex-col sm:flex-row justify-between py-16">
       <div class="text-4xl font-bold w-full sm:w-3/5 text-center sm:text-left">
         <div class="leading-tight"  >Développeur </div>
         <div class="text-green-700 leading-tight">WEB/Mobile</div>
@@ -65,6 +75,13 @@
 
 
     <div 
+ data-aos="fade-up"
+    data-aos-offset="200"
+    data-aos-delay="50"
+    data-aos-duration="500"
+    data-aos-once="true"
+    data-aos-anchor-placement="top-center"
+
     class="overflow-x-hidden">
       <div class="contact-me bg-background-secondary pt-16">
         <div class="container-inner mx-auto text-xl pb-4 relative">
@@ -145,3 +162,4 @@ export default {
 }
 </script>
 
+      
