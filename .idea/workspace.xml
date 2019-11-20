@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ab0926b6-9f3b-4e06-a3d6-368275fe5c2b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/gridsome.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/gridsome.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/init-aos.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/logo_dark_mode.svg" beforeDir="false" />
-    </list>
+    <list default="true" id="ab0926b6-9f3b-4e06-a3d6-368275fe5c2b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +42,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574266021034</updated>
-      <workItem from="1574266024104" duration="274000" />
+      <workItem from="1574266024104" duration="1131000" />
     </task>
     <servers />
   </component>
