@@ -12,8 +12,8 @@
     
     class="hero container-inner mx-auto flex flex-col sm:flex-row justify-between py-16">
       <div class="text-4xl font-bold w-full sm:w-3/5 text-center sm:text-left">
-        <div class="leading-tight"  >Développeur </div>
-        <div class="text-green-700 leading-tight">WEB/Mobile</div>
+        <div class="leading-tight"  >Développeur</div>
+        <div class="text-green-700 leading-tight">Intégrateur WEB/Mobile</div>
       </div>
       <div class="mt-8 sm:mt-0">
         <g-image src="../../static/undraw_laravel_and_vue_59tp.svg" alt="hero" class="mx-auto sm:mx-0" />
@@ -54,7 +54,7 @@
           </li>
           <li class="checkmark mb-6">
             <div><a href="https://www.fablab-mobile.fr">Fablab Mobile</a></div>
-            <div class="text-lg text-gray-600"></div>
+            <div class="text-lg text-gray-600">Le site du camion mobile, un projet de la Gare du Numérique de Carpentras.</div>
           </li>
           <li class="checkmark mb-6">
             <div><a href="https://www.passetonbillet.fr">Passe ton Billet</a></div>
@@ -163,4 +163,3 @@ export default {
 }
 </script>
 
-      
