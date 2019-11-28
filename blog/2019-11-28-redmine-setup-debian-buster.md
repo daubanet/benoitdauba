@@ -131,21 +131,21 @@ production:
 ...
 ```
 
-### Install Redmine Ruby Dependencies
+### Installer les dépendances de Redmine Ruby
 
-Exit the Redmine user by pressing Ctlr+D and as root user, navigate to Redmine install directory and install the Ruby dependencies.
+Quittez l'utilisateur Redmine en appuyant sur Ctlr + D et, en tant qu'utilisateur root, accédez au répertoire d'installation de Redmine et installez les dépendances Ruby.
 
 ```bash
 cd /opt/redmine
 ```
 
-Install Bundler for managing gem dependencies.
+Installez Bundler pour gérer les dépendances gem.
 
 ```bash
 gem install bundler
 ```
 
-Next, install the required gems dependencies as non-privileged redmine user.
+Ensuite, installez les dépendances gems requises en tant qu’utilisateur redmine non privilégié.
 
 ```bash
 su - redmine
@@ -153,9 +153,9 @@ su - redmine
 bundle install --without development test --path vendor/bundle
 ```
 
-### Generate Secret Session Token
+### Générer un jeton de session secret
 
-To prevent tempering of the cookies that stores session data, you need to generate a random secret key that Rails uses to encode them.
+Pour empêcher la modération des cookies stockant les données de session, vous devez générer une clé secrète aléatoire que Rails utilise pour les coder.
 
 ```bash
 bundle exec rake generate_secret_token
@@ -167,7 +167,7 @@ Create Rails database structure by running the command below;
 RAILS_ENV=production bundle exec rake db:migrate
 ```
 
-Once the database migration is done, insert default configuration data into the database by executing;
+Une fois la migration de la base de données terminée, insérez les données de configuration par défaut dans la base de données en exécutant:
 
 ```bash
 RAILS_ENV=production REDMINE_LANG=en bundle exec rake redmine:load_default_data
@@ -175,7 +175,8 @@ RAILS_ENV=production REDMINE_LANG=en bundle exec rake redmine:load_default_data
 
 ### Configure FileSystem Permissions
 
-Ensure that the following directories are available on Redmine directory, /opt/redmine.
+Assurez-vous que les répertoires suivants sont disponibles dans le répertoire Redmine, /opt/redmine.
+
 ```bash
     tmp and tmp/pdf
     public and public/plugin_assets
@@ -183,7 +184,9 @@ Ensure that the following directories are available on Redmine directory, /opt/r
     files
 ```
 
-If they do not exist, simply create them and ensure that they are owned by the user used to run Redmine.
+Français
+
+S'ils n'existent pas, créez-les simplement et assurez-vous qu'ils appartiennent à l'utilisateur utilisé pour exécuter Redmine.
 
 ```bash
 for i in tmp tmp/pdf public/plugin_assets; do [ -d $i ] || mkdir -p $i; done
@@ -193,36 +196,18 @@ chown -R redmine:redmine files log tmp public/plugin_assets
 chmod -R 755 /opt/redmine
 ```
 
-### Testing Redmine Installation
-
-The setup of Redmine on CentOS 8 is now done. Redmine listens on TCP port 3000 by default. Hence, before running the tests, open port 3000/tcp on firewall if it is running.
-
-```bash
-ufw allow 3000/tcp
-```
-
-You can now test Redmine using WEBrick by executing the command below;
-
-```bash
-bundle exec rails server webrick -e production
-```
-
-Navigate to the browser and enter the address, http://server-IP-or-Hostname:3000. Replace the server-IP-or-Hostname accordingly.
-
-If all is well, you should land on Redmine web user interface.
-
 ### Configure Apache for Redmine
 
-Now that you have confirmed that Redmine is working as expected, proceed to configure Apache to server Redmine.
+> Vous devez disposer de certificats SSL valides pour le domaine example.com.
+
+Créez le fichier de configuration Redmine Apache VirtualHost.
 
 ```bash
-Create Redmine Apache VirtualHost configuration file.
-
-vim /etc/apache2/sites-available/redmine.conf
+nano /etc/apache2/sites-available/redmine.conf
 
 Listen 3000
 <VirtualHost *:3000>
-	ServerName redmine.kifarunix-demo.com
+	ServerName redmine.example.com
 	RailsEnv production
 	DocumentRoot /opt/redmine/public
 
@@ -236,14 +221,14 @@ Listen 3000
 </VirtualHost>
 ```
 
-Check Apache configuration for errors.
+Vérifiez la configuration d'Apache pour les erreurs.
 
 ```bash
 apachectl configtest
  Syntax OK
 ```
 
-Ensure that Passenger module is loaded;
+Assurez-vous que le module Passager est chargé:
 
 ```bash
 apache2ctl -M | grep -i passenger
@@ -251,7 +236,7 @@ apache2ctl -M | grep -i passenger
 passenger_module (shared)
 ```
 
-If not enabled, run the command below to enable it.
+S'il n'est pas activé, exécutez la commande ci-dessous pour l'activer.
 
 ```bash
 a2enmod passenger
@@ -269,7 +254,7 @@ Reload Apache
 systemctl reload apache2
 ```
 
-Check to ensure that Redmine is now listening on port 3000.
+Vérifiez que Redmine écoute maintenant sur le port 3000.
 
 ```bash
 lsof -i :3000
