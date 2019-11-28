@@ -60,7 +60,13 @@ Bootez la machine avec votre clé USB et suivez les étapes suivantes :
 
 ![background](./images/pve-select-location.png)
 
+Choisissez le mot de passe du compte root qui vous servira à vous connecter à l'interface d'administration ainsi que l'adresse email qui recevra les notifications systèmes.
+
 ![background](./images/pve-set-password.png)
+
+Cette étape est importante car je vous déconseille de modifier ces valeurs par la suite :
+- Choisissez un nom pour votre noeud qui corresponde à un nom de domaine valide ex: pve1.mondomaine.com
+- Renseignez les paramètres réseau et affecter l'IP 192.168.1.254 au noeud
 
 ![background](./images/pve-setup-network.png)
 
@@ -84,7 +90,9 @@ Nous aurons besoin dans notre example de créer un nouveau bridge qui nous servi
 
 ![background](./images/create_bridge_linux.png)
 
-Voilà, notre cluster est prêt !
+Voilà, notre cluster est prêt : https://192.168.1.254:8006/
+
+Le login par défaut est root et le mot de passe défini pendant l'installation.
 
 ### 2. Installation d'ISPConfig
 Nous allons commencer par réccupérer le template d'une Débian10 afin de pouvoir par la suite créer nos container sous Débian10.
