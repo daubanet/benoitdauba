@@ -3,37 +3,39 @@ title: Installer Redmine avec MariaDB sur Debian 10 Buster
 path: /redmine-setup-debian-buster
 date: 2019-11-28
 summary: Mise en place de Redmine, setup pour un environnement de production en SSL et d'intégration avec Apache2.
-tags: ['Redmine', Gestion de projet', 'Debian 10']
+tags: ['Redmine', 'Gestion de projet', 'Debian 10']
 ---
-### Run system update
+### Mettre à jour le système
 
-To begin with, ensure that your system packages are up-to-date.
+Pour commencer, assurez-vous que vos packages système sont à jour.
 
 ```bash
 apt update
 ```
 
-### Install Required Build Tools and Dependencies
+### Installer les Build tools requis et les dépendances
 
-To install Redmine from the source code, you need install the required build tools and dependencies.
+Pour installer Redmine à partir du code source, vous devez installer les Build tools et les dépendances requises.
 
+```bash
 apt install build-essential ruby-dev libxslt1-dev libmariadb-dev libxml2-dev zlib1g-dev imagemagick libmagickwand-dev curl vim sudo
+```
 
 Install Apache HTTP Server on Debian 10 Buster
 
-Redmine is a web application and hence you need to install a web server to access it.
+Redmine est une application Web et vous devez donc installer un serveur Web pour y accéder.
 
 ```bash
 apt install apache2
 ```
 
-Next, install the APache modules for the Passenger, lightweight web server for Ruby.
+Ensuite, installez les modules Apache pour Passenger, le serveur Web léger pour Ruby.
 
 ```bash
 apt install libapache2-mod-passenger
 ```
 
-The above command will also install other required dependencies including Ruby.
+La commande ci-dessus installera également d'autres dépendances requises, y compris Ruby.
 
 ```bash
 ruby -v
@@ -41,31 +43,31 @@ ruby -v
 ruby 2.5.5p157 (2019-03-15 revision 67260) [x86_64-linux-gnu]
 ```
 
-Start and enable Apache to run on system boot.
+Démarrez et activez Apache pour qu'il s'exécute au démarrage du système.
 
 ```bash
 systemctl enable --now apache2
 ```
 
-### Create Redmine System User
+### Créer un utilisateur du système Redmine
 
-While installing the Redmine Ruby dependencies, you need to run the bundler command as a non root user with sudo privileges. Hence, create a redmine user assign the Redmine install directory, /opt/redmine as its home directory.
+Lors de l'installation des dépendances de Ruby, vous devez exécuter la commande bundler en tant qu'utilisateur non root avec les privilèges sudo. Par conséquent, créez un utilisateur Redmine affecté au répertoire d’installation de Redmine, /opt/redmine en tant que répertoire home.
 
 ```bash
 useradd -r -m -d /opt/redmine -s /usr/bin/bash redmine
 ```
 
-Add Apache user to Redmine group.
+Ajoutez l'utilisateur Apache au groupe Redmine.
 
 ```bash
 usermod -aG redmine www-data
 ```
 
-### Install MariaDB on Debian 10 Buster
+### Installer MariaDB sur Debian 10 Buster
 
-#### Create Redmine Database and Database User
+#### Créer une base de données Redmine et un utilisateur de base de données
 
-Once MariaDB is installed, login as root user and create Redmine database and database user. Replace the names of the database and the database user accordingly.
+Une fois MariaDB installé, connectez-vous en tant qu'utilisateur root et créez la base de données Redmine et l'utilisateur de la base de données. Remplacez les noms de la base de données et de l'utilisateur de la base de données en conséquence.
 
 ```bash
 mysql -u root -p
@@ -80,25 +82,25 @@ flush privileges;
 quit
 ```
 
-### Download and Install Redmine
+### Téléchargez et installez Redmine
 
-Redmine v4.0.5 is the latest release as of this writing. Navigate Redmine releases page and grab Redmine tarball. You can simply download it by running the command below.
+Redmine v4.0.5 est la dernière version à ce jour. Naviguez sur la page des versions de Redmine et récupérez l’archive Redmine. Vous pouvez simplement le télécharger en exécutant la commande ci-dessous.
 
 ```bash
 wget http://www.redmine.org/releases/redmine-4.0.5.tar.gz -P /tmp/
 ```
 
-Extract the Redmine tarball to the Redmine directory.
+Extrayez l'archive Redmine dans le répertoire Redmine.
 
 ```bash
 sudo -u redmine tar xzf /tmp/redmine-4.0.5.tar.gz -C /opt/redmine/ --strip-components=1
 ```
 
-### Configuring Redmine on Debian 10
+### Configuration de Redmine sur Debian 10
 
-Once you have installed Redmine under the /opt/redmine directory, you can now proceed to configure it.
+Une fois que vous avez installé Redmine dans le répertoire /opt/redmine, vous pouvez maintenant procéder à sa configuration.
 
-Create Redmine configuration file by renaming the sample configuration files as shown below;
+Créez le fichier de configuration Redmine en renommant les exemples de fichiers de configuration comme indiqué ci-dessous:
 
 ```bash
 su - redmine
@@ -110,9 +112,10 @@ cp /opt/redmine/public/dispatch.fcgi{.example,}
 cp /opt/redmine/config/database.yml{.example,}
 ```
 
-### Configure Redmine Database Settings
+### Configurer les paramètres de la base de données Redmine
 
-Open the created Redmine database configuration setting and set the Redmine database connection details for MySQL.
+Ouvrez le paramètre de configuration de la base de données Redmine créé et définissez les détails de connexion à la base de données Redmine pour MySQL.
+
 
 ```bash
 vim /opt/redmine/config/database.yml
