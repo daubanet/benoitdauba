@@ -6,6 +6,8 @@ summary: Configurer de A à Z un VPS sous débian 1O pour héberger un site Lara
 tags: ['Laravel', 'Administration système', 'Debian 10', 'Apache2','npm', 'composer', 'ssl' ]
 ---
 
+> Spécial dédicasse à Adracks!
+
 Je vous propose dans cet article de partir d'un debian 10 fraîchement installée sur un VPS.
 Nous allons ensuite configurer ce serveur pour héberger un ou plusieurs sites sous Laravel et le tout en HTTPS.
 
