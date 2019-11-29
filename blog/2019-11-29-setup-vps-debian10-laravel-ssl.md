@@ -63,6 +63,25 @@ Composer est disponnible directement dans les dépôts de Débian Buster.
 apt-get install composer
 ```
 
+# La base de donnée
+Nous utiliserons le remplaçant de MYSQL: mariaDB
+```bash
+apt install mariadb-server mariadb-client
+mysql_secure_installation
+```
+Notez bien vos mots de passes !
+
+Ajoutons par example une base de donnée "laravel-base" pour l'utilisateur "laravel-user" :
+
+```bash
+mysql -uroot -p
+create database laravel-base;
+grant all privileges on laravel-base.* to 'laravel-user'@'localhost' identified by 'laravel-password';
+flush privileges;
+quit
+```
+
+
 # Installation de Yarn package manager
 
 ```bash
