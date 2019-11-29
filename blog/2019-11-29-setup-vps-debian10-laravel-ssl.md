@@ -5,7 +5,10 @@ date: 2019-11-28
 summary: Configurer de A à Z un VPS sous débian 1O pour héberger un site Laravel avec Apache2 en SSL.
 tags: ['Laravel', 'Administration système', 'Debian 10', 'Apache2','npm', 'composer', 'ssl' ]
 ---
-# Setup VPS sous Débian 10 (Buster) pour Laravel
+
+Je vous propose dans cet article de partir d'un debian 10 fraîchement installée sur un VPS.
+Nous allons ensuite configurer ce serveur pour héberger un ou plusieurs sites sous Laravel et le tout en HTTPS.
+
 > Commencez par vous connecter à votre VPS en ssh.
 > Passez en root avec la commande `su -`.
 > Le `-` est important car il indique au shell d'utiliser les variables d'environnement du root et non celles de votre utilisateur de départ ...
@@ -102,9 +105,7 @@ Example de fichier de configuration:
 ```bash
 <VirtualHost *:80>
     ServerName domaine.com
-
     ServerAdmin contact@domaine.com
-    DocumentRoot /var/www/domaine.com/public
 
     # On redirige toutes les requettes en HTTPS
     Redirect / https://www.domaine.com
