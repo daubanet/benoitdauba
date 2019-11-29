@@ -3,7 +3,7 @@ title: Setup VPS sous Débian 10 (Buster) pour Laravel
 path: /setup-vps-debian10-laravel-ssl
 date: 2019-11-28
 summary: Configurer de A à Z un VPS sous débian 1O pour héberger un site Laravel avec Apache2 en SSL.
-tags: ['Laravel', 'Administration système', 'Debian 10', 'Apache2','npm']
+tags: ['Laravel', 'Administration système', 'Debian 10', 'Apache2','npm', 'composer', 'ssl' ]
 ---
 # Setup VPS sous Débian 10 (Buster) pour Laravel
 > Commencez par vous connecter à votre VPS en ssh.
@@ -28,7 +28,7 @@ apt-get install -y nodejs
 ```
 
 
-#Installation du Serveur Apache et de PHP
+# Installation du Serveur Apache et de PHP
 ```bash
  apt-get install apache2
 ```
@@ -76,7 +76,7 @@ Créer un virtual host dans Apache2 est très simple:
 * créer un fichier /etc/apache2/site-aviable/*.conf
 * activer le site avec la commande `a2ensite *.conf`
 
-Un lien symbolique sera créer dans /etc/apache2/site-enable pour indiquer que le site est activé. Il ne reste plus qu'a reloder apache avec la commande `systemctrl restart apache2`.
+Un lien symbolique sera créer dans /etc/apache2/site-enable pour indiquer que le site est activé. Il ne reste plus qu'a reloder apache avec la commande `systemctl restart apache2`.
 
 Example de fichier de configuration:
 
@@ -120,3 +120,9 @@ Example de fichier de configuration:
     CustomLog ${APACHE_LOG_DIR}/domaine.com.access.log combined
 </VirtualHost>
 ```
+
+Avant d'activer votre nouveau site, vous devrez bien sûr activer le module ssl d'apache.
+```bash
+a2enmod ssl
+```
+
