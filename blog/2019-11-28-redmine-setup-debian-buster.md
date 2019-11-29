@@ -65,6 +65,10 @@ usermod -aG redmine www-data
 
 ### Installer MariaDB sur Debian 10 Buster
 
+```bash
+apt install mariadb
+```
+
 #### Créer une base de données Redmine et un utilisateur de base de données
 
 Une fois MariaDB installé, connectez-vous en tant qu'utilisateur root et créez la base de données Redmine et l'utilisateur de la base de données. Remplacez les noms de la base de données et de l'utilisateur de la base de données en conséquence.
@@ -87,6 +91,7 @@ quit
 Redmine v4.0.5 est la dernière version à ce jour. Naviguez sur la page des versions de Redmine et récupérez l’archive Redmine. Vous pouvez simplement le télécharger en exécutant la commande ci-dessous.
 
 ```bash
+apt install wget
 wget http://www.redmine.org/releases/redmine-4.0.5.tar.gz -P /tmp/
 ```
 
@@ -159,11 +164,13 @@ Pour empêcher la modération des cookies stockant les données de session, vous
 
 ```bash
 bundle exec rake generate_secret_token
+```
 
-Create Database Schema Objects
+### Create Database Schema Objects
 
 Create Rails database structure by running the command below;
 
+```bash
 RAILS_ENV=production bundle exec rake db:migrate
 ```
 
@@ -184,8 +191,6 @@ Assurez-vous que les répertoires suivants sont disponibles dans le répertoire 
     files
 ```
 
-Français
-
 S'ils n'existent pas, créez-les simplement et assurez-vous qu'ils appartiennent à l'utilisateur utilisé pour exécuter Redmine.
 
 ```bash
@@ -198,7 +203,6 @@ chmod -R 755 /opt/redmine
 
 ### Configure Apache for Redmine
 
-> Vous devez disposer de certificats SSL valides pour le domaine example.com.
 
 Créez le fichier de configuration Redmine Apache VirtualHost.
 
@@ -240,11 +244,15 @@ S'il n'est pas activé, exécutez la commande ci-dessous pour l'activer.
 
 ```bash
 a2enmod passenger
+```
 
 Enable Redmine site.
 
+```bash
 a2ensite redmine
+```
 
+```bash
 Enabling site redmine.
 To activate the new configuration, you need to run:
   systemctl reload apache2
@@ -252,17 +260,4 @@ To activate the new configuration, you need to run:
 Reload Apache
 
 systemctl reload apache2
-```
-
-Vérifiez que Redmine écoute maintenant sur le port 3000.
-
-```bash
-lsof -i :3000
-
-apache2 32538     root    6u  IPv6 101516      0t0  TCP *:3000 (LISTEN)
-apache2 32647 www-data    6u  IPv6 101516      0t0  TCP *:3000 (LISTEN)
-apache2 32648 www-data    6u  IPv6 101516      0t0  TCP *:3000 (LISTEN)
-apache2 32649 www-data    6u  IPv6 101516      0t0  TCP *:3000 (LISTEN)
-apache2 32650 www-data    6u  IPv6 101516      0t0  TCP *:3000 (LISTEN)
-apache2 32651 www-data    6u  IPv6 101516      0t0  TCP *:3000 (LISTEN)
 ```
