@@ -54,7 +54,7 @@ systemctl enable --now apache2
 Lors de l'installation des dépendances de Ruby, vous devez exécuter la commande bundler en tant qu'utilisateur non root avec les privilèges sudo. Par conséquent, créez un utilisateur Redmine affecté au répertoire d’installation de Redmine, /opt/redmine en tant que répertoire home.
 
 ```bash
-useradd -r -m -d /opt/redmine -s /usr/bin/bash redmine
+useradd -r -m -d /opt/redmine -s /bin/bash redmine
 ```
 
 Ajoutez l'utilisateur Apache au groupe Redmine.
@@ -66,7 +66,7 @@ usermod -aG redmine www-data
 ### Installer MariaDB sur Debian 10 Buster
 
 ```bash
-apt install mariadb
+apt install mariadb-server mariadb-client
 ```
 
 #### Créer une base de données Redmine et un utilisateur de base de données
@@ -76,8 +76,7 @@ Une fois MariaDB installé, connectez-vous en tant qu'utilisateur root et créez
 ```bash
 mysql -u root -p
 
-create database redminedb;
-
+CREATE DATABASE redminedb CHARACTER SET utf8mb4 COLLATE = utf8mb4_unicode_ci;
 grant all on redminedb.* to redmineuser@localhost identified by 'P@ssW0rD';
 
 #### Reload privilege tables and exit the database.
@@ -132,7 +131,7 @@ production:
   host: localhost
   username: redmineuser
   password: "P@ssW0rD"
-  encoding: utf8
+  encoding: utf8mb4
 ...
 ```
 
